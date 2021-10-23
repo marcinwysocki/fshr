@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SachetsService } from './sachets.service';
 import { CreateSachetDto } from './dto/create-sachet.dto';
 import { UpdateSachetDto } from './dto/update-sachet.dto';
@@ -8,7 +16,7 @@ export class SachetsController {
   constructor(private readonly sachetsService: SachetsService) {}
 
   @Post()
-  create(@Body() createSachetDto: CreateSachetDto) {
+  async create(@Body() createSachetDto: CreateSachetDto) {
     return this.sachetsService.create(createSachetDto);
   }
 

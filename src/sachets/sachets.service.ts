@@ -1,11 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSachetDto } from './dto/create-sachet.dto';
 import { UpdateSachetDto } from './dto/update-sachet.dto';
+import { Sachet } from './entities/sachet.entity';
 
 @Injectable()
 export class SachetsService {
-  create(createSachetDto: CreateSachetDto) {
-    return 'This action adds a new sachet';
+  private readonly sachets: Sachet[] = [];
+
+  async create({ brand, name, weight }: CreateSachetDto) {
+    const sachet = new Sachet(brand, name, weight);
+
+    this.sachets.push(sachet);
+
+    return sachet;
   }
 
   findAll() {
