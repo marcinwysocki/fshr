@@ -4,6 +4,6 @@ import { SachetsController } from './sachets.controller';
 
 @Module({
   controllers: [SachetsController],
-  providers: [SachetsService]
+  providers: [SachetsService],
 })
 export class SachetsModule {}
